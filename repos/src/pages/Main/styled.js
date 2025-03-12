@@ -20,20 +20,20 @@ export const Container = styled.div`
     font-size: 20px;
   }
 `;
+
 export const Form = styled.form`
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 5px;
 
   input {
-    width: 60%;
-    border: 1px solid #ddd;
+    width: 100%;
+    border: 1px solid ${(props) => (props.error ? "#ff0000" : "#eee")};
     padding: 3px 5px;
     border-radius: 5px;
     font-size: 14px;
     height: 25px;
-
+    margin-right: 5px;
     &:focus {
       border: 1px solid black;
     }
@@ -50,14 +50,15 @@ to{
    transform: rotate(360deg);
 }
 `;
+
 export const BtnSubmit = styled.button.attrs((props) => ({
   type: "submit",
   disabled: props.loading,
 }))`
   background-color: #0d2636;
-  border-radius: 5px;
+  border-radius: 2px;
   border: none;
-  padding: 0 6px;
+  padding: 6px 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,4 +75,33 @@ export const BtnSubmit = styled.button.attrs((props) => ({
         animation: ${rotate} 2s linear infinite;
       }
     `}
+`;
+
+export const Lista = styled.ul`
+  list-style: none;
+  margin-top: 10px;
+  width: 100%;
+
+  li {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    & + li {
+      border-top: 1px solid #eee;
+    }
+  }
+  a {
+    color: #0d2636;
+    text-decoration: none;
+  }
+`;
+
+export const DeleteBtn = styled.button.attrs({ type: "button" })`
+  margin-right: 10px;
+  background-color: transparent;
+  color: #0d2636;
+  border: 0;
 `;
